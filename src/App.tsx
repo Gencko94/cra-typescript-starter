@@ -1,25 +1,24 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Switch, BrowserRouter as Router, Route } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import Home from './pages/Home';
+import ScrollToTopOnMount from './utils/ScrollToTopOnMount';
+import { Suspense } from 'react';
+import Loading from './utils/Loading';
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Suspense fallback={<Loading />}>
+      <QueryClientProvider client={queryClient}>
+        <Router>
+          <ScrollToTopOnMount />
+          <Switch>
+            <Route path="/" component={Home} />
+          </Switch>
+        </Router>
+      </QueryClientProvider>
+    </Suspense>
   );
 }
 
