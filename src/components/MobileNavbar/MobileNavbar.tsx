@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
 
 const MobileNavbar = () => {
   const { i18n, ready } = useTranslation();
@@ -8,22 +9,12 @@ const MobileNavbar = () => {
       i18n.changeLanguage(lng);
     }
   };
-  return (
-    <div className="flex items-center justify-end">
-      <button
-        className="py-1 px-2 rounded"
-        onClick={() => changeLanguage('en')}
-      >
-        en
-      </button>
-      <button
-        className="py-1 px-2 rounded"
-        onClick={() => changeLanguage('ar')}
-      >
-        ar
-      </button>
-    </div>
-  );
+  return <Container>hello</Container>;
 };
 
 export default MobileNavbar;
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+`;

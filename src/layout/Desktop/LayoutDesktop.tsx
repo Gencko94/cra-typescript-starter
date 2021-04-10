@@ -1,14 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
 import DesktopNavbar from '../../components/DesktopNavbar/DesktopNavbar';
 
 const LayoutDesktop: React.FC = ({ children }) => {
   return (
-    <div className="min-h-full">
+    <Container>
       <DesktopNavbar />
 
       {children}
-    </div>
+    </Container>
   );
 };
 
 export default LayoutDesktop;
+
+const Container = styled.div``;

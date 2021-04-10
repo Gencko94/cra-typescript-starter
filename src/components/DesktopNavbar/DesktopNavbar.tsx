@@ -1,4 +1,5 @@
 import { useTranslation } from 'react-i18next';
+import styled from 'styled-components';
 
 const DesktopNavbar = () => {
   const { t, i18n, ready } = useTranslation();
@@ -8,19 +9,12 @@ const DesktopNavbar = () => {
       i18n.changeLanguage(lng);
     }
   };
-  return (
-    <div className="flex items-center p-2 bg-blue-400">
-      <h1 className="font-semibold text-xl">{t('Welcome_to_React')}</h1>
-      <div className="ml-auto">
-        <button className="btn-sm border" onClick={() => changeLanguage('en')}>
-          en
-        </button>
-        <button className="btn-sm border " onClick={() => changeLanguage('ar')}>
-          ar
-        </button>
-      </div>
-    </div>
-  );
+  return <Container>hi</Container>;
 };
 
 export default DesktopNavbar;
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+`;
